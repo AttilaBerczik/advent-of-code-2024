@@ -26,5 +26,11 @@ for line in file1.readlines():
         array[i] = int(array[i])
     if is_safe(array):
         safe += 1
+    else:
+        for i in range(len(array)):
+            new_array = array[:i] + array[i + 1:]
+            if is_safe(new_array):
+                safe += 1
+                break
 
 print(safe)
